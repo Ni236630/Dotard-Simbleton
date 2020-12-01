@@ -30,25 +30,29 @@ document
                 Example:
                    
             */
-// implement .find() method here
+// implement .find() for business here method here
             const businessArray = useBusiness()
              const foundBusiness =  
-              businessArray.find(business => business.companyName.includes(keyPressEvent.target.value) )
+              businessArray.find(business => business.companyName.includes(keyPressEvent.target.value) || business.purchasingAgent.nameFirst.includes(keyPressEvent.target.value) || business.purchasingAgent.nameLast.includes(keyPressEvent.target.value))
             
 
             companySearchResultArticle.innerHTML = `
                 <h2>
-                ${foundBusiness.companyName}
+                ${foundBusiness.purchasingAgent.nameFirst} ${foundBusiness.purchasingAgent.nameLast}
                 </h2>
                 <section>
-                ${foundBusiness.addressFullStreet}
-
+                ${foundBusiness.phoneWork}
                 </section>
                 <section>
+                <p>${foundBusiness.companyName}</p>
                 ${foundBusiness.addressCity},
                 ${foundBusiness.addressStateCode}
                 ${foundBusiness.addressZipCode}
                 </section>
             `;
+            
+            
+            
+            
         }
     });
